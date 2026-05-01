@@ -47,11 +47,9 @@ export default function Projects() {
           <h2 className="page-title">📁 Projects</h2>
           <p className="page-subtitle">Manage all your team projects</p>
         </div>
-        {role === 'ADMIN' && (
-          <button className="btn btn-primary" onClick={() => setShowModal(true)}>
-            <Plus size={18} /> New Project
-          </button>
-        )}
+        <button className="btn btn-primary" onClick={() => setShowModal(true)}>
+          <Plus size={18} /> New Project
+        </button>
       </div>
 
       {loading ? (
@@ -59,7 +57,7 @@ export default function Projects() {
       ) : projects.length === 0 ? (
         <div className="empty-state">
           <div className="empty-icon">📁</div>
-          <p>No projects yet. {role === 'ADMIN' ? 'Create your first one!' : 'Ask an Admin to create one.'}</p>
+          <p>No projects yet. Create your first one!</p>
         </div>
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 16 }}>
@@ -78,11 +76,9 @@ export default function Projects() {
                     </p>
                   </div>
                 </div>
-                {role === 'ADMIN' && (
-                  <button className="btn btn-danger btn-sm" onClick={() => handleDelete(p.id)}>
-                    <Trash2 size={14} />
-                  </button>
-                )}
+                <button className="btn btn-danger btn-sm" onClick={() => handleDelete(p.id)}>
+                  <Trash2 size={14} />
+                </button>
               </div>
               {p.description && (
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
